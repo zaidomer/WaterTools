@@ -22,4 +22,10 @@
         android:name="com.example.watertools.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_learn"
+        android:name="com.example.watertools.ui.learn.LearnFragment"
+        android:label="Learn"
+        tools:layout="@layout/fragment_learn" />
 </navigation>
