@@ -1,16 +1,16 @@
-package com.example.watertools.ui.dashboard;
+package com.example.watertools.ui.crowdmark;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DashboardViewModel extends ViewModel {
+public class CrowdmarkViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public DashboardViewModel() {
+    public CrowdmarkViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Welcome to Water");
+        mText.setValue("This is notifications fragment");
     }
 
     public LiveData<String> getText() {

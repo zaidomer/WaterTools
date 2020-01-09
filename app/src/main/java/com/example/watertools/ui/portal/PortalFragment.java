@@ -1,4 +1,4 @@
-package com.example.watertools.ui.dashboard;
+package com.example.watertools.ui.portal;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,17 +12,17 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.watertools.R;
 
-public class DashboardFragment extends Fragment {
+public class PortalFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private PortalViewModel PortalViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(this, new Observer<String>() {
+        PortalViewModel =
+                ViewModelProviders.of(this).get(PortalViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_portal, container, false);
+        final TextView textView = root.findViewById(R.id.text_portal);
+        PortalViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

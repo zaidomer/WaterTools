@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">WaterTools</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_portal">Portal</string>
+    <string name="title_quest">Quest</string>
+    <string name="title_crowdmark">Crowdmark</string>
     <string name="title_learn">Learn</string>
 </resources>

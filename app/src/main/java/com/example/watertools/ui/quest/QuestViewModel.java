@@ -1,16 +1,16 @@
-package com.example.watertools.ui.notifications;
+package com.example.watertools.ui.quest;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class QuestViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public QuestViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("Welcome to Water");
     }
 
     public LiveData<String> getText() {
