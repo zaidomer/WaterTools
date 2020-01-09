@@ -1,7 +1,13 @@
+//Credit to Anjal Saneen for lines 37-62 on Stack Overflow
+//https://stackoverflow.com/questions/47367382/webview-does-not-load-a-particular-website/47367462
+//Credit to petrnohejl for lines 64-87 on Stack Overflow
+//https://stackoverflow.com/questions/6077141/how-to-go-back-to-previous-page-if-back-button-is-pressed-in-webview
 package com.example.watertools.ui.portal;
 
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +32,7 @@ public class PortalFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_portal, container, false);
 
-        WebView portalWebView = (WebView) root.findViewById(R.id.portalWebView);
+        final WebView portalWebView = (WebView) root.findViewById(R.id.portalWebView);
         portalWebView.loadUrl("https://portal.uwaterloo.ca");
         portalWebView.getSettings().setLoadsImagesAutomatically(true);
         portalWebView.getSettings().setJavaScriptEnabled(true);
@@ -51,6 +57,31 @@ public class PortalFragment extends Fragment {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     view.loadUrl(request.getUrl().toString());
                 }
+                return false;
+            }
+        });
+
+        portalWebView.setOnKeyListener(new View.OnKeyListener()
+        {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event)
+            {
+                if(event.getAction() == KeyEvent.ACTION_DOWN)
+                {
+                    WebView webView = (WebView) v;
+
+                    switch(keyCode)
+                    {
+                        case KeyEvent.KEYCODE_BACK:
+                            if(webView.canGoBack())
+                            {
+                                webView.goBack();
+                                return true;
+                            }
+                            break;
+                    }
+                }
+
                 return false;
             }
         });
