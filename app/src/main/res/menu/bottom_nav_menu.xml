@@ -21,4 +21,9 @@
         android:icon="@drawable/ic_learn_black_24dp"
         android:title="@string/title_learn" />
 
+    <item
+        android:id="@+id/navigation_works"
+        android:icon="@drawable/ic_learn_black_24dp"
+        android:title="@string/title_works" />
+
 </menu>

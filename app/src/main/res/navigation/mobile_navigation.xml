@@ -28,4 +28,10 @@
         android:name="com.example.watertools.ui.learn.LearnFragment"
         android:label="@string/title_learn"
         tools:layout="@layout/fragment_learn" />
+
+    <fragment
+        android:id="@+id/navigation_works"
+        android:name="com.example.watertools.ui.works.WorksFragment"
+        android:label="@string/title_works"
+        tools:layout="@layout/fragment_works" />
 </navigation>
