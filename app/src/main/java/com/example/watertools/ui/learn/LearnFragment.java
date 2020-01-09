@@ -32,7 +32,7 @@ public class LearnFragment extends Fragment {
         WebView learnWebView = (WebView)root.findViewById(R.id.learnWebView);
         learnWebView.getSettings().setJavaScriptEnabled(true);
         learnWebView.setWebViewClient(new WebViewClient());
-        learnWebView.loadUrl("https://learn.uwaterloo.ca");
+        learnWebView.loadUrl("http://learn.uwaterloo.ca");
         return root;
     }
 }
