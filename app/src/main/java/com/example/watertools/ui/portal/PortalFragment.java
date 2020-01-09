@@ -5,6 +5,8 @@
 package com.example.watertools.ui.portal;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -12,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
+import android.webkit.DownloadListener;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -85,11 +88,23 @@ public class PortalFragment extends Fragment {
                 return false;
             }
         });
+
         if (android.os.Build.VERSION.SDK_INT >= 21) {
             CookieManager.getInstance().setAcceptThirdPartyCookies(portalWebView, true);
         } else {
             CookieManager.getInstance().setAcceptCookie(true);
         }
+
+        //partial credit to https://stackoverflow.com/questions/10069050/download-file-inside-webview for the download function
+        portalWebView.setDownloadListener(new DownloadListener() {
+            public void onDownloadStart(String url, String userAgent,
+                                        String contentDisposition, String mimetype,
+                                        long contentLength) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
         return root;
     }
 }

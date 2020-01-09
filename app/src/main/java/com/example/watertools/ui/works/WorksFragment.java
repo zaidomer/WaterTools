@@ -1,11 +1,14 @@
 package com.example.watertools.ui.works;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
+import android.webkit.DownloadListener;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
@@ -52,11 +55,23 @@ public class WorksFragment extends Fragment {
                 return false;
             }
         });
+
         if (android.os.Build.VERSION.SDK_INT >= 21) {
             CookieManager.getInstance().setAcceptThirdPartyCookies(worksWebView, true);
         } else {
             CookieManager.getInstance().setAcceptCookie(true);
         }
+
+        //partial credit to https://stackoverflow.com/questions/10069050/download-file-inside-webview for the download function
+        worksWebView.setDownloadListener(new DownloadListener() {
+            public void onDownloadStart(String url, String userAgent,
+                                        String contentDisposition, String mimetype,
+                                        long contentLength) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
         return root;
     }
 }
