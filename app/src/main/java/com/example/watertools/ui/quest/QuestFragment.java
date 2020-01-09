@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
@@ -26,6 +27,11 @@ public class QuestFragment extends Fragment {
         questWebView.getSettings().setJavaScriptEnabled(true);
         questWebView.setWebViewClient(new WebViewClient());
         questWebView.loadUrl("https://quest.pecs.uwaterloo.ca/psp/SS/ACADEMIC/SA/?cmd=login&languageCd=ENG&");
+        if (android.os.Build.VERSION.SDK_INT >= 21) {
+            CookieManager.getInstance().setAcceptThirdPartyCookies(questWebView, true);
+        } else {
+            CookieManager.getInstance().setAcceptCookie(true);
+        }
         return root;
     }
 }

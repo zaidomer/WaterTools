@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
@@ -25,7 +26,12 @@ public class PortalFragment extends Fragment {
         WebView portalWebView = (WebView)root.findViewById(R.id.portalWebView);
         portalWebView.getSettings().setJavaScriptEnabled(true);
         portalWebView.setWebViewClient(new WebViewClient());
-        portalWebView.loadUrl("https://portal.uwaterloo.ca/#/");
+        portalWebView.loadUrl("https://portal.uwaterloo.ca");
+        if (android.os.Build.VERSION.SDK_INT >= 21) {
+            CookieManager.getInstance().setAcceptThirdPartyCookies(portalWebView, true);
+        } else {
+            CookieManager.getInstance().setAcceptCookie(true);
+        }
         return root;
     }
 }

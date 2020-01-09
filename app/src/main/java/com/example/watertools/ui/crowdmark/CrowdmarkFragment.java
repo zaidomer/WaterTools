@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.CookieManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
@@ -25,7 +26,8 @@ public class CrowdmarkFragment extends Fragment {
         WebView crowdmarkWebView = (WebView)root.findViewById(R.id.crowdmarkWebView);
         crowdmarkWebView.getSettings().setJavaScriptEnabled(true);
         crowdmarkWebView.setWebViewClient(new WebViewClient());
-        crowdmarkWebView.loadUrl("https://app.crowdmark.com/sign-in");
+        crowdmarkWebView.loadUrl("https://app.crowdmark.com/student/courses");
+        CookieManager.getInstance().setAcceptCookie(true);
         return root;
     }
 }
