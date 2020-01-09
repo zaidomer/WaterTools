@@ -1,10 +1,13 @@
 package com.example.watertools.ui.portal;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
@@ -23,10 +26,38 @@ public class PortalFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_portal, container, false);
 
-        WebView portalWebView = (WebView)root.findViewById(R.id.portalWebView);
-        portalWebView.getSettings().setJavaScriptEnabled(true);
-        portalWebView.setWebViewClient(new WebViewClient());
+        WebView portalWebView = (WebView) root.findViewById(R.id.portalWebView);
         portalWebView.loadUrl("https://portal.uwaterloo.ca");
+        portalWebView.getSettings().setLoadsImagesAutomatically(true);
+        portalWebView.getSettings().setJavaScriptEnabled(true);
+        portalWebView.getSettings().setAllowContentAccess(true);
+        portalWebView.getSettings().setUseWideViewPort(true);
+        portalWebView.getSettings().setLoadWithOverviewMode(true);
+        portalWebView.getSettings().setDomStorageEnabled(true);
+        portalWebView.clearView();
+        portalWebView.setHorizontalScrollBarEnabled(false);
+        portalWebView.getSettings().setAppCacheEnabled(true);
+        portalWebView.getSettings().setDatabaseEnabled(true);
+        portalWebView.setVerticalScrollBarEnabled(false);
+        portalWebView.getSettings().setBuiltInZoomControls(true);
+        portalWebView.getSettings().setDisplayZoomControls(false);
+        portalWebView.getSettings().setAllowFileAccess(true);
+        portalWebView.getSettings().setPluginState(WebSettings.PluginState.OFF);
+        portalWebView.setScrollbarFadingEnabled(false);
+        portalWebView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+        portalWebView.getSettings().setDefaultZoom(WebSettings.ZoomDensity.FAR);
+        portalWebView.setWebViewClient(new WebViewClient());
+        portalWebView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+        portalWebView.setInitialScale(1);
+        portalWebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    view.loadUrl(request.getUrl().toString());
+                }
+                return false;
+            }
+        });
         if (android.os.Build.VERSION.SDK_INT >= 21) {
             CookieManager.getInstance().setAcceptThirdPartyCookies(portalWebView, true);
         } else {
