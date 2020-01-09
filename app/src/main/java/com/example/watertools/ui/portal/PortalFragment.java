@@ -34,7 +34,6 @@ public class PortalFragment extends Fragment {
         portalWebView.getSettings().setUseWideViewPort(true);
         portalWebView.getSettings().setLoadWithOverviewMode(true);
         portalWebView.getSettings().setDomStorageEnabled(true);
-        portalWebView.clearView();
         portalWebView.setHorizontalScrollBarEnabled(false);
         portalWebView.getSettings().setAppCacheEnabled(true);
         portalWebView.getSettings().setDatabaseEnabled(true);
@@ -42,12 +41,9 @@ public class PortalFragment extends Fragment {
         portalWebView.getSettings().setBuiltInZoomControls(true);
         portalWebView.getSettings().setDisplayZoomControls(false);
         portalWebView.getSettings().setAllowFileAccess(true);
-        portalWebView.getSettings().setPluginState(WebSettings.PluginState.OFF);
         portalWebView.setScrollbarFadingEnabled(false);
         portalWebView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
-        portalWebView.getSettings().setDefaultZoom(WebSettings.ZoomDensity.FAR);
         portalWebView.setWebViewClient(new WebViewClient());
-        portalWebView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
         portalWebView.setInitialScale(1);
         portalWebView.setWebViewClient(new WebViewClient() {
             @Override
