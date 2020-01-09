@@ -1,3 +1,5 @@
+//Credit to petrnohejl for lines 64-87 on Stack Overflow
+//https://stackoverflow.com/questions/6077141/how-to-go-back-to-previous-page-if-back-button-is-pressed-in-webview
 package com.example.watertools.ui.quest;
 
 import android.content.Intent;
