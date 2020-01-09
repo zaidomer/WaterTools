@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -16,18 +18,14 @@ public class QuestFragment extends Fragment {
 
     private QuestViewModel QuestViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
-        QuestViewModel =
-                ViewModelProviders.of(this).get(QuestViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View root = inflater.inflate(R.layout.fragment_quest, container, false);
-        final TextView textView = root.findViewById(R.id.text_quest);
-        QuestViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        WebView questWebView = (WebView)root.findViewById(R.id.questWebView);
+        questWebView.getSettings().setJavaScriptEnabled(true);
+        questWebView.setWebViewClient(new WebViewClient());
+        questWebView.loadUrl("https://quest.pecs.uwaterloo.ca/psp/SS/ACADEMIC/SA/?cmd=login&languageCd=ENG&");
         return root;
     }
 }

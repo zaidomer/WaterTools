@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -16,18 +18,14 @@ public class PortalFragment extends Fragment {
 
     private PortalViewModel PortalViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
-        PortalViewModel =
-                ViewModelProviders.of(this).get(PortalViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View root = inflater.inflate(R.layout.fragment_portal, container, false);
-        final TextView textView = root.findViewById(R.id.text_portal);
-        PortalViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        WebView portalWebView = (WebView)root.findViewById(R.id.portalWebView);
+        portalWebView.getSettings().setJavaScriptEnabled(true);
+        portalWebView.setWebViewClient(new WebViewClient());
+        portalWebView.loadUrl("https://portal.uwaterloo.ca/#/");
         return root;
     }
 }

@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -16,18 +18,14 @@ public class CrowdmarkFragment extends Fragment {
 
     private CrowdmarkViewModel CrowdmarkViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
-        CrowdmarkViewModel =
-                ViewModelProviders.of(this).get(CrowdmarkViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View root = inflater.inflate(R.layout.fragment_crowdmark, container, false);
-        final TextView textView = root.findViewById(R.id.text_crowdmark);
-        CrowdmarkViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        WebView crowdmarkWebView = (WebView)root.findViewById(R.id.crowdmarkWebView);
+        crowdmarkWebView.getSettings().setJavaScriptEnabled(true);
+        crowdmarkWebView.setWebViewClient(new WebViewClient());
+        crowdmarkWebView.loadUrl("https://app.crowdmark.com/sign-in");
         return root;
     }
 }
