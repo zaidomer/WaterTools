@@ -19,15 +19,15 @@ public class LearnFragment extends Fragment {
     private LearnViewModel LearnViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        LearnViewModel = ViewModelProviders.of(this).get(LearnViewModel.class);
+//        LearnViewModel = ViewModelProviders.of(this).get(LearnViewModel.class);
         View root = inflater.inflate(R.layout.fragment_learn, container, false);
-        final TextView textView = root.findViewById(R.id.text_learn);
-        LearnViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+//        final TextView textView = root.findViewById(R.id.text_learn);
+//        LearnViewModel.getText().observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
 
         WebView learnWebView = (WebView)root.findViewById(R.id.learnWebView);
         learnWebView.getSettings().setJavaScriptEnabled(true);
