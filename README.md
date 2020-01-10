@@ -23,7 +23,7 @@ Easy access to<br>
 </span><br>
 
 <hr>
-Supports Android Marshmallow(Version 6.0, API level 23) or above.<br>
+Supports Android Marshmallow (Version 6.0, API level 23) or above. Older versions may vary in stability.<br>
 Developed in Android Studio.<br>
 Made with Java and XML.<br>
 Pending Publication on Google Play.<br>
