@@ -18,20 +18,30 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
+import com.example.watertools.MainActivity;
 import com.example.watertools.R;
 
 public class LearnFragment extends Fragment {
 
     private LearnViewModel LearnViewModel;
+    private WebView learnWebView;
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        MainActivity.oldLearnURL = learnWebView.getUrl();
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_learn, container, false);
 
-        WebView learnWebView = (WebView)root.findViewById(R.id.learnWebView);
+        learnWebView = (WebView)root.findViewById(R.id.learnWebView);
         learnWebView.getSettings().setJavaScriptEnabled(true);
         learnWebView.setWebViewClient(new WebViewClient());
-        learnWebView.loadUrl("http://learn.uwaterloo.ca");
+        learnWebView.loadUrl(MainActivity.oldLearnURL);
+
         learnWebView.setOnKeyListener(new View.OnKeyListener()
         {
             @Override
@@ -57,6 +67,8 @@ public class LearnFragment extends Fragment {
             }
         });
 
+
+
         //partial credit to https://stackoverflow.com/questions/10069050/download-file-inside-webview for the download function
         learnWebView.setDownloadListener(new DownloadListener() {
             public void onDownloadStart(String url, String userAgent,
@@ -69,4 +81,6 @@ public class LearnFragment extends Fragment {
         });
         return root;
     }
+
+
 }

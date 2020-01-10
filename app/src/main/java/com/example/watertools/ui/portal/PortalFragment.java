@@ -25,18 +25,28 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
+import com.example.watertools.MainActivity;
 import com.example.watertools.R;
+import com.example.watertools.ui.learn.LearnFragment;
 
 public class PortalFragment extends Fragment {
 
     private PortalViewModel PortalViewModel;
+    private WebView portalWebView;
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        MainActivity.oldPortalURL = portalWebView.getUrl();
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_portal, container, false);
 
-        final WebView portalWebView = (WebView) root.findViewById(R.id.portalWebView);
-        portalWebView.loadUrl("https://portal.uwaterloo.ca");
+        portalWebView = (WebView) root.findViewById(R.id.portalWebView);
+        portalWebView.loadUrl(MainActivity.oldPortalURL);
         portalWebView.getSettings().setLoadsImagesAutomatically(true);
         portalWebView.getSettings().setJavaScriptEnabled(true);
         portalWebView.getSettings().setAllowContentAccess(true);

@@ -19,20 +19,29 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
+import com.example.watertools.MainActivity;
 import com.example.watertools.R;
 
 public class CrowdmarkFragment extends Fragment {
 
     private CrowdmarkViewModel CrowdmarkViewModel;
+    private WebView crowdmarkWebView;
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        MainActivity.oldCrowdmarkURL = crowdmarkWebView.getUrl();
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_crowdmark, container, false);
 
-        WebView crowdmarkWebView = (WebView)root.findViewById(R.id.crowdmarkWebView);
+        crowdmarkWebView = (WebView)root.findViewById(R.id.crowdmarkWebView);
         crowdmarkWebView.getSettings().setJavaScriptEnabled(true);
         crowdmarkWebView.setWebViewClient(new WebViewClient());
-        crowdmarkWebView.loadUrl("https://app.crowdmark.com/student/courses");
+        crowdmarkWebView.loadUrl(MainActivity.oldCrowdmarkURL);
         CookieManager.getInstance().setAcceptCookie(true);
         crowdmarkWebView.setOnKeyListener(new View.OnKeyListener()
         {

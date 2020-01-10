@@ -19,20 +19,29 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
+import com.example.watertools.MainActivity;
 import com.example.watertools.R;
 
 public class WorksFragment extends Fragment {
 
     private WorksViewModel WorksViewModel;
+    private WebView worksWebView;
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        MainActivity.oldWorksURL = worksWebView.getUrl();
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_works, container, false);
 
-        WebView worksWebView = (WebView)root.findViewById(R.id.worksWebView);
+        worksWebView = (WebView)root.findViewById(R.id.worksWebView);
         worksWebView.getSettings().setJavaScriptEnabled(true);
         worksWebView.setWebViewClient(new WebViewClient());
-        worksWebView.loadUrl("https://waterlooworks.uwaterloo.ca/myAccount/dashboard.htm");
+        worksWebView.loadUrl(MainActivity.oldWorksURL);
         worksWebView.setOnKeyListener(new View.OnKeyListener()
         {
             @Override

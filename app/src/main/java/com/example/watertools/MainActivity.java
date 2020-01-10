@@ -10,6 +10,12 @@ import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static String oldLearnURL = "http://learn.uwaterloo.ca";
+    public static String oldPortalURL = "https://portal.uwaterloo.ca";
+    public static String oldQuestURL = "https://quest.pecs.uwaterloo.ca/psp/SS/ACADEMIC/SA/?cmd=login&languageCd=ENG&";
+    public static String oldWorksURL = "https://waterlooworks.uwaterloo.ca/myAccount/dashboard.htm";
+    public static String oldCrowdmarkURL = "https://app.crowdmark.com/student/courses";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
