@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_portal"
-        android:name="com.example.watertools.ui.portal.PortalFragment"
+        android:name="com.pawmocca.watertools.ui.portal.PortalFragment"
         android:label="@string/title_portal"
         tools:layout="@layout/fragment_portal" />
 
     <fragment
         android:id="@+id/navigation_quest"
-        android:name="com.example.watertools.ui.quest.QuestFragment"
+        android:name="com.pawmocca.watertools.ui.quest.QuestFragment"
         android:label="@string/title_quest"
         tools:layout="@layout/fragment_quest" />
 
     <fragment
         android:id="@+id/navigation_crowdmark"
-        android:name="com.example.watertools.ui.crowdmark.CrowdmarkFragment"
+        android:name="com.pawmocca.watertools.ui.crowdmark.CrowdmarkFragment"
         android:label="@string/title_crowdmark"
         tools:layout="@layout/fragment_crowdmark" />
 
     <fragment
         android:id="@+id/navigation_learn"
-        android:name="com.example.watertools.ui.learn.LearnFragment"
+        android:name="com.pawmocca.watertools.ui.learn.LearnFragment"
         android:label="@string/title_learn"
         tools:layout="@layout/fragment_learn" />
 
     <fragment
         android:id="@+id/navigation_works"
-        android:name="com.example.watertools.ui.works.WorksFragment"
+        android:name="com.pawmocca.watertools.ui.works.WorksFragment"
         android:label="@string/title_works"
         tools:layout="@layout/fragment_works" />
 </navigation>
