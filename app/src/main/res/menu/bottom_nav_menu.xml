@@ -2,11 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_portal"
-        android:icon="@drawable/ic_portal_black_24dp"
-        android:title="@string/title_portal" />
-
-    <item
         android:id="@+id/navigation_quest"
         android:icon="@drawable/ic_quest_black_24dp"
         android:title="@string/title_quest" />
@@ -15,6 +10,11 @@
         android:id="@+id/navigation_crowdmark"
         android:icon="@drawable/ic_crowdmark_black_24dp"
         android:title="@string/title_crowdmark" />
+
+    <item
+        android:id="@+id/navigation_portal"
+        android:icon="@drawable/ic_portal_black_24dp"
+        android:title="@string/title_portal" />
 
     <item
         android:id="@+id/navigation_learn"
