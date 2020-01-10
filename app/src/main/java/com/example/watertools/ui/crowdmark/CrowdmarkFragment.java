@@ -13,19 +13,15 @@ import android.webkit.CookieManager;
 import android.webkit.DownloadListener;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.TextView;
-import androidx.annotation.Nullable;
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+
+import androidx.annotation.NonNull;
 
 import com.example.watertools.MainActivity;
 import com.example.watertools.R;
 
 public class CrowdmarkFragment extends Fragment {
 
-    private CrowdmarkViewModel CrowdmarkViewModel;
     private WebView crowdmarkWebView;
 
     @Override
