@@ -15,7 +15,7 @@ Easy access to<br>
 </ul>
 
 <h2>Snapshot</h2>
-<img src="WaterTools release 1.0\release graphics\phone_learn.jpg alt="learn">
+<img src="WaterTools release 1.0/release_graphics/phone_learn.jpg" alt="learn">
 
 Supports Android Marshmallow(Version 6.0, API level 23) or above.<br>
 Made in Android Studios.<br>
