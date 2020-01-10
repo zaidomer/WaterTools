@@ -20,5 +20,7 @@ Easy access to<br>
   <img src="WaterTools release 1.0/release_graphics/phone_portal.jpg" alt="learn" width="30%" height="30%">
   <img src="WaterTools release 1.0/release_graphics/phone_quest.jpg" alt="learn" width="30%" height="30%">
 </span><br>
+
+<hr>
 Supports Android Marshmallow(Version 6.0, API level 23) or above.<br>
 Made in Android Studios.<br>
