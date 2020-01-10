@@ -24,5 +24,6 @@ Easy access to<br>
 
 <hr>
 Supports Android Marshmallow(Version 6.0, API level 23) or above.<br>
-Made in Android Studio.<br>
+Developed in Android Studio.<br>
 Made with Java and XML.<br>
+Pending Publication on Google Play.<br>
