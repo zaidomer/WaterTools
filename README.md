@@ -1,4 +1,5 @@
-# WaterTools
+<h1><img src="WaterTools release 1.0/release_graphics/Playstore Icon.png" alt="icon" width="10%" height="10%" style="float:left">
+ WaterTools</h1>
 Title: WaterTools<br>
 Description: This is an android app that combines the essential websites used by the University of Waterloo into one place for easy access.<br>
 Author: Zaid Omer, Hans Wang<br>
