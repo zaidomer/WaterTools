@@ -74,6 +74,12 @@ public class CrowdmarkFragment extends Fragment {
                 startActivity(i);
             }
         });
+
+        if (android.os.Build.VERSION.SDK_INT >= 21) {
+            CookieManager.getInstance().setAcceptThirdPartyCookies(crowdmarkWebView, true);
+        } else {
+            CookieManager.getInstance().setAcceptCookie(true);
+        }
         return root;
     }
 }

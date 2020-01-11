@@ -9,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.CookieManager;
 import android.webkit.DownloadListener;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -76,6 +77,13 @@ public class LearnFragment extends Fragment {
                 startActivity(i);
             }
         });
+
+        if (android.os.Build.VERSION.SDK_INT >= 21) {
+            CookieManager.getInstance().setAcceptThirdPartyCookies(learnWebView, true);
+        } else {
+            CookieManager.getInstance().setAcceptCookie(true);
+        }
+        
         return root;
     }
 
