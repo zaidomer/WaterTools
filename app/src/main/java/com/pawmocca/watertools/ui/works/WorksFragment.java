@@ -64,7 +64,7 @@ public class WorksFragment extends Fragment {
             }
         });
 
-        if (android.os.Build.VERSION.SDK_INT >= 21) {
+        if (android.os.Build.VERSION.SDK_INT >= 21){
             CookieManager.getInstance().setAcceptThirdPartyCookies(worksWebView, true);
         } else {
             CookieManager.getInstance().setAcceptCookie(true);
