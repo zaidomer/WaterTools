@@ -3,12 +3,15 @@
 package com.pawmocca.watertools.ui.crowdmark;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.webkit.CookieManager;
 import android.webkit.DownloadListener;
 import android.webkit.WebView;
@@ -20,12 +23,14 @@ import androidx.fragment.app.Fragment;
 import com.pawmocca.watertools.R;
 import com.pawmocca.watertools.MainActivity;
 
+import static androidx.constraintlayout.widget.Constraints.TAG;
+
 public class CrowdmarkFragment extends Fragment {
 
     private WebView crowdmarkWebView;
 
     @Override
-    public void onDestroy(){
+    public void onDestroy() {
         super.onDestroy();
         MainActivity.oldCrowdmarkURL = crowdmarkWebView.getUrl();
     }
@@ -34,25 +39,20 @@ public class CrowdmarkFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_crowdmark, container, false);
 
-        crowdmarkWebView = (WebView)root.findViewById(R.id.crowdmarkWebView);
+        crowdmarkWebView = (WebView) root.findViewById(R.id.crowdmarkWebView);
         crowdmarkWebView.getSettings().setJavaScriptEnabled(true);
         crowdmarkWebView.setWebViewClient(new WebViewClient());
         crowdmarkWebView.loadUrl(MainActivity.oldCrowdmarkURL);
         CookieManager.getInstance().setAcceptCookie(true);
-        crowdmarkWebView.setOnKeyListener(new View.OnKeyListener()
-        {
+        crowdmarkWebView.setOnKeyListener(new View.OnKeyListener() {
             @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event)
-            {
-                if(event.getAction() == KeyEvent.ACTION_DOWN)
-                {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     WebView webView = (WebView) v;
 
-                    switch(keyCode)
-                    {
+                    switch (keyCode) {
                         case KeyEvent.KEYCODE_BACK:
-                            if(webView.canGoBack())
-                            {
+                            if (webView.canGoBack()) {
                                 webView.goBack();
                                 return true;
                             }
@@ -80,6 +80,7 @@ public class CrowdmarkFragment extends Fragment {
         } else {
             CookieManager.getInstance().setAcceptCookie(true);
         }
+
         return root;
     }
 }

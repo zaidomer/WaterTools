@@ -5,13 +5,16 @@
 package com.pawmocca.watertools.ui.portal;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.webkit.CookieManager;
 import android.webkit.DownloadListener;
 import android.webkit.WebResourceRequest;
@@ -24,6 +27,8 @@ import androidx.fragment.app.Fragment;
 
 import com.pawmocca.watertools.R;
 import com.pawmocca.watertools.MainActivity;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class PortalFragment extends Fragment {
 
@@ -110,6 +115,8 @@ public class PortalFragment extends Fragment {
                 startActivity(i);
             }
         });
+        
+
         return root;
     }
 }

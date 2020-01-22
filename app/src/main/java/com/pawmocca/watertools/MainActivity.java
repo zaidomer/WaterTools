@@ -1,6 +1,8 @@
 package com.pawmocca.watertools;
 
 import android.os.Bundle;
+import android.renderscript.ScriptGroup;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -16,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
     public static String oldPortalURL = "https://portal.uwaterloo.ca";
     public static String oldQuestURL = "https://quest.pecs.uwaterloo.ca/psp/SS/ACADEMIC/SA/?cmd=login&languageCd=ENG&";
     public static String oldWorksURL = "https://waterlooworks.uwaterloo.ca/myAccount/dashboard.htm";
-    public static String oldCrowdmarkURL = "https://app.crowdmark.com/student/courses";
+    public static String oldCrowdmarkURL = "https://app.crowdmark.com/student";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
 }
+
+
 /*
 public class MainActivity extends AppCompatActivity {
 
