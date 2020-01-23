@@ -27,3 +27,4 @@ Supports Android Marshmallow (Version 6.0, API level 23) or above. Older version
 Developed in Android Studio.<br>
 Made with Java and XML.<br>
 Published on Google Play.<br>
+https://play.google.com/store/apps/details?id=com.pawmocca.watertools&hl=en <br>
